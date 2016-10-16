@@ -1,7 +1,7 @@
 # onebus-serial-display
 Script to poll the onebusaway API and send formatted results to a serial LCD from a raspberry pi
 
-Requires onebusaway api key (http://pugetsound.onebusaway.org/p/OneBusAwayApiService.action) set via environment variable and a stops.json file with the following structure:
+Requires onebusaway api key (http://pugetsound.onebusaway.org/p/OneBusAwayApiService.action) set via environment variable (`oba_key`) and a stops.json file with the following structure:
 
 ```
 { "stops":                               
