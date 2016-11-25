@@ -52,6 +52,10 @@ def get_arrival_times():
     for stop in stops:
         arrivals_url = get_url(arrivals_base_url % stop['id'])
         arrivals_data = requests.get(arrivals_url).json()['data']['entry']['arrivalsAndDepartures']
+        if 'route_ids' in stop:
+            # filter to selected route ids only
+            arrivals_data = [entry for entry in arrivals_data if
+                             entry['routeId'] in stop['route_ids']]
         result[stop['label']] = get_arrival_times_for(arrivals_data)
     
     return result
