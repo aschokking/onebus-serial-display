@@ -1,6 +1,10 @@
 import os
 from os.path import abspath
 import requests
+try:
+    import urlparse as parse
+except:
+    import urllib.parse as parse
 import urllib
 import datetime
 import json
@@ -15,7 +19,7 @@ base_url = 'http://api.pugetsound.onebusaway.org/api/'
 arrivals_base_url = 'where/arrivals-and-departures-for-stop/%s.json'
 
 def get_url(api, params=None):
-    url = urllib.parse.urljoin(base_url, api) + ("?key=%s" % key)
+    url = parse.urljoin(base_url, api) + ("?key=%s" % key)
     if params:
         url = url + "&" + params
     return url
